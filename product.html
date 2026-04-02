@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>翔润农机 | 产品中心</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* 全局基础设置 */
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        /* 核心布局：左右分栏 */
+        .container1 {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex; /* 开启 Flexbox 左右布局 */
+            gap: 20px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            min-height: 600px; /* 保证右侧内容较少时也能撑起高度 */
+        }
+
+        /* 左侧：产品导航菜单 */
+        .sidebar {
+            flex: 0 0 260px; /* 左侧固定宽度 250px */
+            border-right: 2px solid #f0f2f5;
+            padding-right: 20px;
+        }
+        .sidebar-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #007bff;
+        }
+        .product-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .product-list li {
+            margin-bottom: 10px;
+        }
+        .product-list a {
+            display: block;
+            padding: 12px 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #495057;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        .product-list a:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+        /* 被选中的产品样式 */
+        .product-list a.active {
+            background: #e7f1ff;
+            color: #007bff;
+            border-color: #b8daff;
+            font-weight: bold;
+        }
+
+        /* 右侧：产品详情展示区 */
+        .content-area {
+            flex: 1; /* 占据剩余全部宽度 */
+            padding-left: 10px;
+        }
+        
+        /* 默认隐藏所有的产品面板 */
+        .product-panel {
+            display: none;
+            animation: fadeIn 0.4s ease; /* 简单的淡入动画 */
+        }
+        /* 只有带有 active 类的面板才会显示 */
+        .product-panel.active {
+            display: block;
+        }
+
+        
+
+        .product-panel h4 {
+            margin-top: 0;
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin-bottom: 3px;
+        }
+
+        /* 媒体网格：图片和视频混合排版 */
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* 自动响应式网格 */
+            gap: 20px;
+        }
+        
+        /* 图片和视频的统一外观 */
+        .media-item {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            object-fit: cover; /* 保证图片不变形 */
+        }
+        img.media-item {
+            aspect-ratio: 4 / 3; /* 图片固定比例 */
+        }
+        video.media-item {
+            aspect-ratio: 16 / 9; /* 视频固定比例 */
+            background: #000;
+        }
+
+        /* 淡入动画效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 手机端适配：改为上下布局 */
+        @media (max-width: 768px) {
+            .container { flex-direction: column; }
+            .sidebar { flex: none; width: 100%; border-right: none; border-bottom: 2px solid #f0f2f5; padding-right: 0; padding-bottom: 20px; margin-bottom: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                郓城翔润农业机械有限公司
+            </a>
+            <div class="mobile-toggle">
+                <span>☰</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">首页</a>
+                <a href="concept.html" class="nav-link">公司理念</a>
+                <a href="contact.html" class="nav-link">新闻资讯</a>
+                <a href="product.html" class="nav-link active">产品中心</a>
+                <a href="company.html" class="nav-link">关于我们</a>
+            </nav>
+            <div class="header-contact">
+                <a href="tel:+8615615200477" class="contact-phone">
+                    <span>📞</span> 156-1520-0477
+                </a>
+            </div>
+        </div>
+    </header>
+<!-- Page Hero -->
+    <section class="page-hero">
+        <h1>产品一览</h1>
+    </section>
+
+<div class="container1">
+    
+    <div class="sidebar">
+        <div class="sidebar-title">选择产品类别</div>
+        <ul class="product-list">
+            <li><a href="#" class="active" onclick="switchProduct('prod-1', this); return false;">🔹轮式圆盘青储饲料收获机</a></li>
+            <li><a href="#" onclick="switchProduct('prod-2', this); return false;">🔹全自动柴油版打包一体机</a></li>
+            <li><a href="#" onclick="switchProduct('prod-3', this); return false;">🔹产品陆续上线中</a></li>
+        </ul>
+    </div>
+
+    <div class="content-area">
+
+        <div id="prod-1" class="product-panel active">
+            <div style="text-align: center;">
+            <h3>轮式圆盘青储饲料收获机 - 产品展示</h3>
+            </div>
+            <h4>图片</h4>
+            <div class="media-grid"> 
+                <img src="./assets/product1-pic1.jpg" alt="轮式圆盘青储饲料收获机" class="media-item">
+                <img src="./assets/product1-pic2.jpg" alt="轮式圆盘青储饲料收获机" class="media-item">
+                <img src="./assets/product1-pic3.jpg" alt="轮式圆盘青储饲料收获机" class="media-item">
+                <img src="./assets/product1-pic4.jpg" alt="轮式圆盘青储饲料收获机" class="media-item">
+                <img src="./assets/product1-pic5.jpg" alt="轮式圆盘青储饲料收获机" class="media-item">
+                <img src="./assets/product1-pic6.jpg" alt="轮式圆盘青储饲料收获机" class="media-item">
+                <br>
+            </div>
+            
+            <h4>视频</h4>
+            <div class="media-grid">
+                <video controls preload="metadata" class="media-item">
+                    <source src="./assets/product1-vid1.mp4" type="video/mp4">
+                </video>
+                <video controls preload="metadata" class="media-item">
+                    <source src="./assets/product1-vid2.mp4" type="video/mp4">
+                </video>
+                <video controls preload="metadata" class="media-item">
+                    <source src="./assets/product1-vid3.mp4" type="video/mp4">
+                </video>
+                <video controls preload="metadata" class="media-item">
+                    <source src="./assets/product1-vid4.mp4" type="video/mp4">
+                </video>
+                <video controls preload="metadata" class="media-item">
+                    <source src="./assets/product1-vid5.mp4" type="video/mp4">
+                </video>
+                <video controls preload="metadata" class="media-item">
+                    <source src="./assets/product1-vid6.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <div id="prod-2" class="product-panel">
+            <div style="text-align: center;">
+            <h3>全自动柴油版打包一体机 - 产品展示</h3>
+            </div>
+            <h4>图片</h4>
+            <div class="media-grid"> 
+                <img src="./assets/product2-pic1.jpg" alt="轮式圆盘青储饲料收获机" class="media-item">
+                <img src="./assets/product2-pic2.jpg" alt="轮式圆盘青储饲料收获机" class="media-item">
+                <img src="./assets/product2-pic3.jpg" alt="轮式圆盘青储饲料收获机" class="media-item">
+                <img src="./assets/product2-pic4.jpg" alt="轮式圆盘青储饲料收获机" class="media-item">
+                <img src="./assets/product2-pic5.jpg" alt="轮式圆盘青储饲料收获机" class="media-item">
+                <img src="./assets/product2-pic6.jpg" alt="轮式圆盘青储饲料收获机" class="media-item">
+                <br>
+            </div>
+            
+            <h4>视频</h4>
+            <div class="media-grid">
+                <video controls preload="metadata" class="media-item">
+                    <source src="./assets/product2-vid1.mp4" type="video/mp4">
+                </video>
+                <video controls preload="metadata" class="media-item">
+                    <source src="./assets/product2-vid2.mp4" type="video/mp4">
+                </video>
+                <video controls preload="metadata" class="media-item">
+                    <source src="./assets/product2-vid3.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <div id="prod-3" class="product-panel">
+            <h3>．．．</h3>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    function switchProduct(panelId, clickedLink) {
+        // 1. 暂停所有正在播放的视频 (非常关键的体验优化)
+        var allVideos = document.querySelectorAll('video');
+        allVideos.forEach(function(video) {
+            video.pause(); 
+        });
+
+        // 2. 隐藏右侧所有的产品面板
+        var allPanels = document.querySelectorAll('.product-panel');
+        allPanels.forEach(function(panel) {
+            panel.classList.remove('active');
+        });
+
+        // 3. 只显示当前点击的那个面板
+        document.getElementById(panelId).classList.add('active');
+
+        // 4. 更新左侧菜单的蓝色高亮状态
+        var allLinks = document.querySelectorAll('.product-list a');
+        allLinks.forEach(function(link) {
+            link.classList.remove('active');
+        });
+        clickedLink.classList.add('active');
+    }
+</script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>翔润农机 | 新闻资讯</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* --- 主内容区限制宽度并居中 --- */
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            /* 重点修改：增加上边距，把内容往下推。这里的 100px 可以根据你实际导航栏的高度进行微调 */
+            padding: 100px 20px 0 20px; 
+        }
+
+        /* --- 新闻卡片样式 --- */
+        article.news-card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+            border-left: 5px solid #3498db; /* 左侧加一条蓝色装饰线 */
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* 鼠标悬停时卡片微微浮起 */
+        article.news-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        /* --- 卡片内部排版 --- */
+        .news-title {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.4em;
+        }
+        .news-title a {
+            text-decoration: none;
+            color: #2c3e50;
+            transition: color 0.2s;
+        }
+        .news-title a:hover {
+            color: #3498db; /* 鼠标悬停标题变蓝 */
+        }
+
+        .news-meta {
+            font-size: 0.9em;
+            color: #888;
+            margin-bottom: 15px;
+        }
+        .news-meta span {
+            margin-right: 15px;
+        }
+
+        .news-summary {
+            color: #555;
+            margin-bottom: 20px;
+            text-align: justify; /* 文本两端对齐，看起来更整齐 */
+        }
+
+        /* 阅读更多按钮 */
+        .read-more {
+            display: inline-block;
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+        .read-more::after {
+            content: " →"; /* 纯 CSS 添加箭头符号 */
+            transition: margin-left 0.2s;
+        }
+        .read-more:hover::after {
+            margin-left: 5px; /* 悬停时箭头向右移动一点 */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                郓城翔润农业机械有限公司
+            </a>
+            <div class="mobile-toggle">
+                <span>☰</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">首页</a>
+                <a href="concept.html" class="nav-link">公司理念</a>
+                <a href="contact.html" class="nav-link active">新闻资讯</a>
+                <a href="product.html" class="nav-link">产品中心</a>
+                <a href="company.html" class="nav-link">关于我们</a>
+            </nav>
+            <div class="header-contact">
+                <a href="tel:+8615615200477" class="contact-phone">
+                    <span>📞</span> 156-1520-0477
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <article class="news-card">
+            <h2 class="news-title"><a href="#">拓展国际市场：我公司与越南、墨西哥等国开展合作洽谈</a></h2>
+            <div class="news-meta">
+                <span>📅 2026-04-02</span>
+                <span>🏷️ 国际合作</span>
+            </div>
+            <p class="news-summary">
+                近日，我司积极响应“走出去”战略，高层代表团与来自越南、墨西哥等国家的企业及采购代表进行了深入友好的交流。双方就未来的农机设备出口、技术支持等业务达成了初步意向，标志着我司国际化战略迈出了坚实的一步。
+            </p>
+            
+        </article>
+
+        <article class="news-card">
+            <h2 class="news-title"><a href="#">新品首发：我公司重磅推出全新一代高性能农机产品</a></h2>
+            <div class="news-meta">
+                <span>📅 2026-03-25</span>
+                <span>🏷️ 新品发布</span>
+            </div>
+            <p class="news-summary">
+                经过研发团队的不懈努力与实地测试，我公司正式推出多款全新农业机械产品。新产品在动力系统、操作便利性及节能降耗方面实现了全面升级，致力于为广大农户和农业合作社带来更高效、更舒适的作业体验。
+            </p>
+            
+        </article>
+
+        <article class="news-card">
+            <h2 class="news-title"><a href="#">喜报：我公司圆满达成 2025 年度订单总目标</a></h2>
+            <div class="news-meta">
+                <span>📅 2026-01-10</span>
+                <span>🏷️ 企业战报</span>
+            </div>
+            <p class="news-summary">
+                面对市场的机遇与挑战，在全体员工的共同拼搏以及广大客户的鼎力支持下，我公司成功跨越年度业绩里程碑，全面且出色地完成了 2025 年度的各项订单目标！这不仅彰显了翔润农机的产品实力，也为新一年的蓬勃发展奠定了坚实基础。
+            </p>
+            
+        </article>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" >
+        <div class="container" align="center">
+            <table>
+                <tr>
+                    <td ><div class="footer-col" ><h4>・做值得信赖的农机品牌</h4></div></td>
+                </tr>
+                <tr>
+                    <td ><div class="footer-col"><h4>・农业机械 · 我们更专业</h4></div></td>
+                </tr>
+                <tr>
+                    <td ><div class="footer-col"><h4>・为现代农业提供强劲动力</h4></div></td>
+                </tr>
+                <tr>
+                    <td ><div class="footer-col"><h4>・用机械改变农业未来</h4></div></td>
+                </tr>
+            </table>
+            <div class="footer-bottom">
+                <p>郓城翔润农机 , Ltd Corporation. All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
